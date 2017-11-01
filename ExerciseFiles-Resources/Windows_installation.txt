@@ -1,0 +1,10 @@
+#PEM certificate
+https://curl.haxx.se/ca/cacert.pem
+
+
+
+
+
+php.ini
+[cURL] 
+curl.cainfo="C:\MAMP\cacert.pem"

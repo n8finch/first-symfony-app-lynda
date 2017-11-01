@@ -1,0 +1,4 @@
+insert into room values (6, '101', 1,'');
+insert into room values (7, '102', 1,'');
+insert into room values (8, '201', 2,'');
+insert into room values (9, '202', 2,'');

@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
+
     <div class="row">
       <div class="medium-12 large-12 columns">
-        <h4>{{ mode == 'new_client' ? 'New Client' : 'Modify Client' }}</h4>
-        <form action="" method="post">
+        <h4>{{mode == 'n' ? 'New Client' : 'Modify Client'}}</h4>
+        <form action="{{ mode == 'n' ? path('new_client') : path('modify_client', { 'client_id': form.id }) }}" method="post">
           <div class="medium-4  columns">
             <label>Title</label>
             <select name="form[title]">
-            {% for title in titles %}
-              <option value="{{title}}" {{ title == form.title ? 'selected' : '' }} >{{ title | capitalize }}.</option>
+            {% for title in form.titles %}
+              <option value="{{title}}" {{ title == form.title ? 'selected' : '' }}>{{title | capitalize}}.</option>
             {% endfor %}
             </select>
           </div>
@@ -18,7 +20,7 @@
           </div>
           <div class="medium-4  columns">
             <label>Last Name</label>
-            <input name="form[last_name]" value="{{ form.last_name is defined ? form.last_name : '' }}" type="text" />
+            <input name="form[lastName]" value="{{ form.last_name is defined ? form.last_name : '' }}" type="text" />
           </div>
           <div class="medium-8  columns">
             <label>Address</label>
@@ -26,7 +28,7 @@
           </div>
           <div class="medium-4  columns">
             <label>zip_code</label>
-            <input name="form[zip_code]" value="{{ form.zip_code is defined ? form.zip_code : '' }}" type="text" />
+            <input name="form[zipCode]" value="{{ form.zip_code is defined ? form.zip_code : '' }}" type="text" />
           </div>
           <div class="medium-4  columns">
             <label>City</label>
@@ -46,4 +48,5 @@
         </form>
       </div>
     </div>
+
 {% endblock %}

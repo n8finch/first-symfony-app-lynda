@@ -1,0 +1,3 @@
+curl -sS http://getcomposer.org/installer | php -- --filename=composer
+chmod a+x composer
+sudo mv composer /usr/local/bin/composer

@@ -8,14 +8,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdminController extends Controller
 {
-    
     /**
-    * @Route("/", name="home")
-    **/
+     * @Route("/", name="home")
+     */
     public function showIndex()
     {
         
-         return $this->render('admin/index.html.twig');
-    
-    }   
+        $data['current_page'] = 'admin';
+
+        return $this->render(   'admin/index.html.twig', 
+                                $data );
+                                
+    }
 }

@@ -1,0 +1,26 @@
+//Reservation.yml
+    manyToOne:
+        client:
+            targetEntity: Client
+            inversedBy: reservations
+            joinColumn:
+                name: client_id
+                referencedColumnName: id
+        room:
+            targetEntity: Room
+            inversedBy: reservations
+            joinColumn:
+                name: room_id
+                referencedColumnName: id
+
+//Client.yml
+oneToMany:
+    reservations:
+        targetEntity: Reservation
+        mappedBy: client
+
+//Room
+oneToMany:
+    reservations:
+        targetEntity: Reservation
+        mappedBy: room
